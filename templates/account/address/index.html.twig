@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container my-5">
+        <h1>Espace membre</h1>
+
+        <div class = "row">
+            <div class = "col-md-3">
+                {% include 'account/_menu.html.twig' %}
+            </div>
+            <div class = "col-md-9">
+                <div class="d-flex justify-content-between">
+                    <h5>Mes adresses</h5>
+                    <a href="{{ path ('app_account_address_form') }}" class = "btn btn-light">Ajouter une adresse</a>
+                </div>
+                
+                {# afficher un message si l'utilisateur n'a pas encore ajouter un adresse  #}
+                {% if app.user.addresses|length == 0 %}
+                    <p>Vous n'avez pas encore ajouté d'adresses.</p>
+                {% else %}
+                <div class = "row">
+                {# une boucle pour afficher les adresses de l'ulisateur #}
+                {% for address in app.user.addresses %}
+                    <div class = "col-md-4 mt-2">
+                        <div class ="bg-light pd-2 text-center">
+                            <strong>{{ address.firstname }} {{ address.lastname }}</strong> </br>
+                            {{ address.address }} </br>
+                            {{ address.postal }}, {{ address.city }} </br>
+                            {{ address.country }} </br>
+                            Tel : {{ address.phone }} </br>
+                            <a href="{{ path ('app_account_address_form', { id : address.id } ) }}" class="small text-secondary">Modifer mon adresse</a>
+                            <a href="{{ path ('app_account_address_delete', { id : address.id } ) }}" class="small text-secondary">Supprimer mon adresse</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+                {% endif %}        
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

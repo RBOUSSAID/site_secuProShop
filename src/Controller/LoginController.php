@@ -24,10 +24,12 @@ class LoginController extends AbstractController
             'last_username' => $lastUsername,
         ]);
     }
+
+    // route pour déconnecter l'utilisateur
     #[Route('/deconnexion', name: 'app_logout', methods: ['GET'])]
     public function logout():never
     {
-       throw new \Exception('Don\'t forget to activate logout in security.yaml');
-       
+    throw new \Exception('Don\'t forget to activate logout in security.yaml');
+    
     }
 }

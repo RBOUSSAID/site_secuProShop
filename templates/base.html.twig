@@ -30,15 +30,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ path('app_home')}}">Accueil</a>
                     </li>
+                    <!--récupérer les catégories dans la base de données et les afficher à chaque fois automatiquemnt -->
+                    {% for category in allCategories %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{ path ( 'app_category', {slug : category.slug} ) }}">{{ category.name }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                    {% endfor %}
                 </ul>
                 <div class="speed-menu">
                 <!--si mon user est connecter alors on affiche son nom-->
@@ -47,7 +44,10 @@
                 {% else %}
                     <a href="{{ path('app_login')}}"><i data-feather="user"></i></a>
                 {% endif %}
-                    <a href=""><i data-feather="shopping-cart"></i></a>
+                    <a href="{{ path ('app_cart') }}">
+                        <i data-feather="shopping-cart"></i>
+                        <span class="badge txt-bg-light">{{ fullCartQuantity }}</span> <!-- afficher le nbrd'articles dans le panier -->
+                    </a>
                 </div>
             </div>
         </div>

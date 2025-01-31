@@ -16,6 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegisterUserType extends AbstractType
 {
+    // fonction pour générer le formulaire d'inscription
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -77,6 +78,7 @@ class RegisterUserType extends AbstractType
         ;
     }
 
+    // fonction pour valider les données du formulaire
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
