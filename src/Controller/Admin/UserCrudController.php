@@ -6,6 +6,7 @@ use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -33,6 +34,10 @@ class UserCrudController extends AbstractCrudController
             //modifier les champs en fonction de la page (nom, prénom...)
             TextField::new('firstname')->setLabel('Nom'),
             TextField::new('lastname')->setLabel('Prénom'),
+            ChoiceField::new('roles')->setLabel('Permission')->setHelp('Choisir le rôle de cet Utilisateur')->setChoices([
+                'ROLE_ADMIN' => 'ROLE_ADMIN',
+                'ROLE_USER' => 'ROLE_USER',
+            ])->allowMultipleChoices(),
             TextField::new('email')->setLabel('Email')->onlyOnIndex()
         ];
     }

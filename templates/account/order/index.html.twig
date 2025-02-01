@@ -12,6 +12,7 @@
             </div>
             <div class = "col-md-9">
                 <small><a href="{{ path ('app_account') }}" class="btn btn-light btn-sm">Retour</a></small>
+                <small><a target="_blank" href="{{ path ('app_invoice_customer', { id_order : order.id }) }}" class="btn btn-light btn-sm">Ma facture</a></small>
                 <h5 class="mt-4">Ma commande N°{{ order.id }}</h5>
                 
                 

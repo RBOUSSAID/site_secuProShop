@@ -10,9 +10,10 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -42,6 +43,7 @@ class ProductCrudController extends AbstractCrudController
         // Champs à afficher dans la liste et dans le formulaire d'édition Easy
         return [
             TextField::new('name')->setLabel('Nom')->setHelp('Nom du produit'), // TextField pour le nom du produit
+            BooleanField::new('isHomepage')->setLabel('Produit à la une')->setHelp('Vous permet d\'afficher un produit sur la homepage'),
             SlugField::new('slug')->setTargetFieldName('name')->setHelp('URL unique pour le produit générée automatiquement'), // SlugField pour générer une URL unique pour le produit
             TextEditorField::new('description')->setLabel('Description')->setHelp('Description du produit'), // TextEditorField pour la description du produit
             ImageField::new('illustration')

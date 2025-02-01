@@ -1,7 +1,8 @@
 {% extends '@!EasyAdmin/layout.html.twig' %} {# pour afficher easy-admin #}
 
 {% block main %}
-    <h3>Commande n°{{ order.id}}</h3>
+    <small><a target="_blank" href="{{ path ('app_invoice_admin', { id_order : order.id }) }}" class="btn btn-light btn-sm">Voir/Imprimer la facture</a></small>
+    <h3 class="mt-2">Commande n°{{ order.id}}</h3>
     
     {# récuper le status de la commande #}
     {{ include('admin/state.html.twig', { field : { 'value' : order.state } } ) }}</br>

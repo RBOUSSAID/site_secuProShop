@@ -35,6 +35,9 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $isHomepage = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -127,6 +130,26 @@ class Product
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function isHomepage(bool $isHomepage = null): ?bool
+    {
+        // Si un argument est fourni (c'est-à-dire si $isHomepage n'est pas null),
+        // on met à jour la propriété $this->isHomepage avec la valeur fournie
+        if ($isHomepage !== null) {
+            $this->isHomepage = $isHomepage;
+        }
+        // On retourne la valeur actuelle de la propriété $this->isHomepage.
+        // Si aucun argument n'a été fourni, cette méthode agit comme un getter.
+        // Si un argument a été fourni, elle agit comme un setter puis retourne la nouvelle valeur
+        return $this->isHomepage;
+    }
+
+    public function setHomepage(?bool $isHomepage): static
+    {
+        $this->isHomepage = $isHomepage;
 
         return $this;
     }

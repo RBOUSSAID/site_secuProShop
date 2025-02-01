@@ -37,7 +37,6 @@ class PasswordController extends AbstractController
                 'success',
                 'Votre mot de passe a bien été modifié.'
             );
-            
         }
         return $this->render('account/password/index.html.twig',[
             'modifyPwd' => $form->createView(),
