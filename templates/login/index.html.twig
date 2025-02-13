@@ -1,26 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container my-5">
-    <h1>Connexion</h1>
+<div class="container my-5 w-50 p-4 login-form">
+    <h1 class="text-center mb-3">Connexion</h1>
         {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
 <form action="{{ path('app_login') }}" method="post">
-    <label for="username">Votre email:</label>
-    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required>
+    {#<label for="username">Votre email:</label>#}
+    <input class="form-control" type="text" placeholder="Nom" id="username" name="_username" value="{{ last_username }}" required>
 
-    <label for="password">Votre mot de passe:</label>
-    <input class="form-control" type="password" id="password" name="_password" required>
+    {#<label for="password">Votre mot de passe:</label>#}
+    <input class="form-control" placeholder="Votre mot de passe" type="password" id="password" name="_password" required>
 
     <input type="hidden" name="_target_path" value="{{path('app_account')}}">
 
-    <button type="submit" class="btn btn-success mt-3">Se connecter</button>
+    <button type="submit" class="btn btn-success mt-3 w-100">Se connecter</button>
 </form>
 
-<br/>
-Vous n'avez pas de compte ?<a href="{{ path('app_register') }}">S'inscrir</a><br>
-<a href="{{ path('app_password') }}">Mot de passe oublié ?</a>
+<div class="col-md-6 mt-2">
+    <p class="d-inline">Vous n'avez pas de compte ?</p>
+    <a class="d-inline ms-2" href="{{ path('app_register') }}">S'inscrir</a>
+</div>    
+<a class="mt-2" href="{{ path('app_password') }}">Mot de passe oublié ?</a>
 </div>
 {% endblock %}
