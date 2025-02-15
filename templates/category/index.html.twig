@@ -2,22 +2,32 @@
 
 
 {% block body %}
-    
-    <div class="container my-5">
-        <h1>{{category.name}}</h1>
-        <p>Cette catégorie contient {{category.products|length}} produit(s)</p>
-            
-        {#affichage des produits #}  
-        <div class="row">
-        {% for product in category.products %}
-            <div class="col-md-3 text-center">
-                <a href="{{ path ('app_product', { slug : product.slug} ) }}" class="text-decoration-none">
-                    <img src="/uploads/{{product.illustration}}" class="img-fluid" alt="{{product.name}}">
-                    <span class="d-block fw-bold text-black">{{product.name}}</span>
-                </a>    
-                <span class="d-block">{{product.pricewt|price }}</span>
-            </div> 
-        {% endfor %}   
+<div class="container my-5">
+<h1 class="text-center text-warning">{{ category.name }}</h1>
+<p class="text-center text-withe">Cette catégorie contient {{ category.products|length }} produit(s)</p>
+
+<!-- Affichage des produits -->
+<div class="row g-4">
+
+    {% for product in category.products %}
+        <div class="col-lg-3 col-md-4 col-sm-6 text-center product">
+            <!-- Lien vers la page produit -->
+            <a href="{{ path('app_product', { slug: product.slug }) }}" class="text-decoration-none text-dark">
+                <div class="product-image-container">
+                    <!-- Image du produit -->
+                    <img src="/uploads/{{ product.illustration }}" class="img-fluid rounded shadow-sm mb-3 product-image hover-shadow" alt="{{ product.name }}" loading="lazy">
+                </div>
+                <!-- Nom du produit -->
+                <span class="d-block fw-bold text-dark">{{ product.name }}</span>
+            </a>
+
+            <!-- Prix -->
+            <span class="d-block mt-2 fs-5 text-success">{{ product.pricewt|price }}</span>
         </div>
-    </div>
+    {% endfor %}
+
+</div>
+
+</div>
+
 {% endblock %}

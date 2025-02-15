@@ -43,7 +43,7 @@
         {% for product in order.orderDetails %}
             <tr>
                 <td>
-                    <img src="/uploads/{{ product.productIllustration }}" width="100px" alt="">
+                    <img src="/uploads/{{ product.productIllustration }}" width="100px" alt="Image de mon produit">
                 </td>
                 <td>{{ product.productName }}</td>
                 <td>{{ product.productQuantity }}</td>
@@ -64,7 +64,7 @@
     </tbody>
 </table>
 
-<div class="text-right fs-5">
+<div class="text-end fs-5">
     <strong>Total HT : </strong> {{ (order.totalWt - order.totalTva)|price }}</br>
     <strong>Total TVA : </strong> {{ order.totalTva|price }} </br>
     <strong>Total TTC : </strong> {{ order.totalWt|price }}

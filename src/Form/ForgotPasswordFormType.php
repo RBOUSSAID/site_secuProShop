@@ -13,18 +13,21 @@ class ForgotPasswordFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [
-                'label' => 'Votre adresse email',
-                'help'=> 'Vous recevrez votre nouveau mot de passe par email.',
-                'attr'=>[
-                    'placeholder' => 'Entrez votre adresse email'
-                ],
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Réinitialiser',
-                ])
-        ;
-    }
+        ->add('email', EmailType::class, [
+            'label' => '📧 Votre adresse email',
+            'label_attr' => ['class' => 'fw-bold text-warning'],
+            'attr' => [
+                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'placeholder' => 'Entrez votre adresse email'
+            ],
+        ])
+        ->add('submit', SubmitType::class, [
+            'label' => '📩 Réinitialiser',
+            'attr' => [
+                'class' => 'btn btn-warning w-100 fw-bold py-2'
+            ],
+        ]);
+    }        
 
     public function configureOptions(OptionsResolver $resolver): void
     {

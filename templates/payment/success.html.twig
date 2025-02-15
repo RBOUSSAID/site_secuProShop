@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container my-5 text-center">
-    <img src="/assets/img/sac-de-courses.png" alt="Commande validée">
-    <h1>Merci pour votre commande</h1>
-    <a href="{{ path ('app_account_order', { 'id_order' : order.id } ) }}" class="btn btn-success">Consulter ma commande</a>
+<div class="container my-5 d-flex justify-content-center">
+<div class="card shadow-lg border-0 rounded-4 p-5" style="background-color: #3A3A3A; color: white; max-width: 600px;">
+    <img src="/assets/img/sac-de-courses.png" alt="Commande validée" class="img-fluid mb-4" style="max-width: 150px; display: block; margin-left: auto; margin-right: auto">
+    <h1 class="text-warning text-center">Merci pour votre commande !</h1>
+    <p class="mb-4 text-center">Votre commande a été enregistrée avec succès.</p>
+    <a href="{{ path ('app_account_order', { 'id_order' : order.id } ) }}" class="btn btn-warning px-4 py-2">
+        📋 Consulter ma commande
+    </a>
 </div>
+</div>
+
 {% endblock %}

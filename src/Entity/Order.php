@@ -61,7 +61,8 @@ class Order
         $totalTtc = 0;
         $products = $this->getOrderDetails();
         foreach ($products as $product) {
-            $totalTtc += $product->getProductPrice() * (1 + $product->getProductTva()/100); // calcul du total TTC sur le prix HT de chaque produit
+            $coef = 1 + ($product->getProductTva()/100);
+            $totalTtc += $product->getProductPrice() * $coef * $product->getProductQuantity(); // calcul du total TTC sur le prix HT de chaque produit
         }
         return $totalTtc + $this->getCarrierPrice(); // ajout du prix de transport
     }

@@ -1,11 +1,35 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container mt-5 mb-5">
-        <div class="small-bloc">
-            <h1>Nouveau mot de passe</h1>
-                {{ form(form) }} 
+<div class="container my-5 d-flex justify-content-center">
+<div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-white w-50">
+    <h1 class="text-center text-warning">🔒 Nouveau mot de passe</h1>
 
-        </div>    
+    <p class="text-center mt-2">Veuillez entrer votre nouveau mot de passe ci-dessous.</p>
+
+    <div class="mt-4">
+        {{ form_start(form) }}
+        
+        <div class="mb-3">
+            {{ form_label(form.plainPassword.first, '🔑 Choisissez votre nouveau mot de passe', {'label_attr': {'class': 'fw-bold'}}) }}
+            {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control bg-secondary text-white border-0 rounded-3 p-2'}}) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.plainPassword.second, '🔄 Confirmez votre mot de passe', {'label_attr': {'class': 'fw-bold'}}) }}
+            {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control bg-secondary text-white border-0 rounded-3 p-2'}}) }}
+        </div>
+
+        {{ form_end(form) }}
     </div>
+
+</div>
+</div>
+
+<style>
+.hover-shadow:hover {
+    box-shadow: 0px 0px 10px rgba(255, 193, 7, 0.8);
+}
+</style>
+
 {% endblock %}

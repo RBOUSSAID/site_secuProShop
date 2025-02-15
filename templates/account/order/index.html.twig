@@ -2,53 +2,55 @@
 
 
 {% block body %}
-    
-    <div class="container my-5">
-        <h1>Espace membre</h1>
-        
-            <div class = "row">
-            <div class = "col-md-3">
-                {% include 'account/_menu.html.twig' %}
-            </div>
-            <div class = "col-md-9">
-                <small><a href="{{ path ('app_account') }}" class="btn btn-light btn-sm">Retour</a></small>
-                <small><a target="_blank" href="{{ path ('app_invoice_customer', { id_order : order.id }) }}" class="btn btn-light btn-sm">Ma facture</a></small>
-                <h5 class="mt-4">Ma commande N°{{ order.id }}</h5>
-                
-                
+<div class="container my-5">
+<h1 class="text-warning">📜 Espace membre</h1>
 
-            <span>Passée le : {{ order.createdAt|date('d/m/Y') }}</span>    
-            {{ include('admin/state.html.twig', { field : { 'value' : order.state } } ) }}</br>
-        <hr>
-            
-            <div class="row my-4">
-                <div class="col-md-6">
-                    <strong>Adresse de livraison :</strong></br>
+<div class="row">
+    <div class="col-md-3">
+        {% include 'account/_menu.html.twig' %}
+    </div>
+    <div class="col-md-9">
+        <div class="d-flex justify-content-between mb-3">
+            <a href="{{ path ('app_account') }}" class="btn btn-light btn-sm">⬅️ Retour</a>
+            <a target="_blank" href="{{ path ('app_invoice_customer', { id_order : order.id }) }}" class="btn btn-warning btn-sm">📄 Ma facture</a>
+        </div>
+        
+        <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #3A3A3A; color: white;">
+            <h5 class="mb-3">Ma commande N°{{ order.id }}</h5>
+            <span>Passée le : {{ order.createdAt|date('d/m/Y') }}</span>
+            {{ include('admin/state.html.twig', { field : { 'value' : order.state } } ) }}
+        </div>
+
+        <div class="row my-4">
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-white">
+                    <strong>📦 Adresse de livraison :</strong></br>
                     {{ order.delivery|raw }}
                 </div>
-                <div class="col-md-6">
-                    <strong>Transporteur :</strong></br>
-                    {{ order.carrierName}}    
-                </div>     
             </div>
-            <hr>
-            <strong>Contenu de la commande : </strong></br>
-        
-            
-        {# tableau  pour les détails de la commande #}
-            <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Illustration</th>
-                    <th scope="col">Nom du produit</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col">Prix unitaire</th>
-                    <th scope="col">Total TVA</th>
-                    <th scope="col">Total TTC</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in order.orderDetails %}
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-white">
+                    <strong>🚚 Transporteur :</strong></br>
+                    {{ order.carrierName }}
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-white">
+            <strong>📋 Contenu de la commande :</strong></br>
+            <table class="table table-dark table-bordered mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Illustration</th>
+                        <th scope="col">Nom du produit</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix unitaire</th>
+                        <th scope="col">Total TVA</th>
+                        <th scope="col">Total TTC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in order.orderDetails %}
                     <tr>
                         <td>
                             <img src="/uploads/{{ product.productIllustration }}" width="100px" alt="">
@@ -57,29 +59,29 @@
                         <td>{{ product.productQuantity }}</td>
                         <td>{{ product.productPrice|price }}</td>
                         <td>{{ product.productTva }} %</td>
-                        {% set coef = 1 + (product.productTva / 100) %}    
+                        {% set coef = 1 + (product.productTva / 100) %}
                         <td>{{ ((product.productPrice * coef) * product.productQuantity)|price }}</td>
                     </tr>    
-                {% endfor %}
-                <tr>
-                    <td></td>
-                    <td>{{ order.carrierName }}</td>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td>{{ order.carrierPrice|price }}</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <div>
-            <strong>Total HT : </strong> {{ (order.totalWt - order.totalTva)|price }}</br>
-            <strong>Total TVA : </strong> {{ order.totalTva|price }} </br>
-            <strong>Total TTC : </strong> {{ order.totalWt|price }}
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td>{{ order.carrierName }}</td>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ order.carrierPrice|price }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-            </div>
+        <div class="card shadow-lg border-0 rounded-4 p-4 mt-4 bg-dark text-white">
+            <strong>Total HT :</strong> {{ (order.totalWt - order.totalTva)|price }}</br>
+            <strong>Total TVA :</strong> {{ order.totalTva|price }} </br>
+            <strong class="text-warning">Total TTC :</strong> {{ order.totalWt|price }}
         </div>
-
     </div>
+</div>
+</div>
+
 {% endblock %}

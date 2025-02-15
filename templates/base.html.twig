@@ -18,8 +18,8 @@
 </head>
 <body>
 
-<header data-bs-theme="dark">
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<header>
+    <nav class="navbar navbar-expand-md fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('app_home')}}">SecuProShop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,9 +69,33 @@
     {% block body %}{% endblock %}
 
     <!-- FOOTER -->
-      <footer class="container">
-        <p>&copy; 2017–2024 SecuProShop <a href="#">CGV</a> &middot; <a href="#">CGU</a></p>
-    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SecuProShop</h3>
+                <p>Votre spécialiste en vêtements de sécurité privée.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions générales de vente</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Contactez-nous</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <ul class="social-links">
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SecuProShop. Tous droits réservés.</p>
+        </div>
     </footer>
 </main>
 

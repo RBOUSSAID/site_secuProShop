@@ -1,30 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container my-5">
+    <h1 class="text-warning">Espace membre</h1>
 
-    <div class="container my-5">
-        <h1>Espace membre</h1>
-
-        <div class = "row">
-            <div class = "col-md-3">
-                {% include 'account/_menu.html.twig' %}
-            </div>
-            <div class = "col-md-9">
-                <h5>Mes adresses</h5>
-
-                {{ form_start(addressForm) }}
-                    <div class = "row">
-                        <div class = "col-md-6">{{ form_row(addressForm.firstname) }}</div>
-                        <div class = "col-md-6">{{ form_row(addressForm.lastname) }}</div>
-                        <div class = "col-md-12">{{ form_row(addressForm.address) }}</div>
-                        <div class = "col-md-6">{{ form_row(addressForm.postal) }}</div>
-                        <div class = "col-md-6">{{ form_row(addressForm.city) }}</div>
-                        <div class = "col-md-12">{{ form_row(addressForm.country) }}</div>
-                        <div class = "col-md-6">{{ form_row(addressForm.phone) }}</div>
-                    </div>
-                {{ form_end(addressForm) }}
-            </div>
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'account/_menu.html.twig' %}
         </div>
 
+        <div class="col-md-9">
+            <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #3A3A3A; color: white;">
+                <h5 class="text-warning">📍 Ajouter / Modifier une adresse</h5>
+                
+                <hr class="border-light">
+            
+                {{ form(addressForm, { 'class': 'btn btn-warning btn-lg w-100' }) }}
+            </div>
+        </div>
     </div>
+</div>
+
 {% endblock %}

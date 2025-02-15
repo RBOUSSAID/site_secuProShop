@@ -2,23 +2,39 @@
 
 
 {% block body %}
-    
-    <div class="container my-5">
+<div class="container my-5">
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-md-6">
-                <img src="/uploads/{{product.illustration}}" class="img-fluid" alt="{{product.name}}">
-            </div>
-            <div class="col-md-6">
-                <small><i><a href="{{ path ('app_category', { slug : product.category.slug } )}}">{{ product.category.name }}</a> > {{ product.name }}</i></small>
-                <h1>{{ product.name }}</h1>
-                <span class="d-block mb-3">Prix : {{ product.pricewt|price }}</span>    
-                {{ product.description|raw }}
-                <a href="{{ path ('app_cart_add', { id : product.id }) }}" class="btn btn-success w-100 mt-3">Ajouter au panier</a>
-            </div>
+    <!-- Product Image -->
+    <div class="col-md-6">
+        <div class="product-image-container mb-4">
+            <img src="/uploads/{{product.illustration}}" class="img-fluid rounded shadow-sm" alt="{{product.name}}">
+        </div>
+    </div>
 
+    <!-- Product Information -->
+    <div class="col-md-6">
+        <!-- Category and Name -->
+        <small><i><a href="{{ path('app_category', { slug: product.category.slug }) }}" class="text-muted">{{ product.category.name }}</a> > {{ product.name }}</i></small>
+        
+        <!-- Product Name -->
+        <h1 class="mt-2">{{ product.name }}</h1>
+
+        <!-- Price -->
+        <span class="d-block mb-3 fs-4 text-success"><strong>Prix :</strong> {{ product.pricewt|price }}</span>    
+
+        <!-- Product Description -->
+        <div class="product-description mb-4">
+            {{ product.description|raw }}
         </div>
 
+        <!-- Add to Cart Button -->
+        <a href="{{ path('app_cart_add', { id: product.id }) }}" class="btn btn-lg btn-primary w-100 mt-3">Ajouter au panier</a>
     </div>
+
+</div>
+
+</div>
+
 {% endblock %}

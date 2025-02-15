@@ -48,8 +48,8 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
             {% for product in productsInHomepage %}
-                <div class="col-lg-4">
-                    <img src="/uploads/{{product.illustration}}" class="img-fluid" alt="{{product.name}}">
+                <div class="col-lg-3 col-md-3 col-sm-6 mb-4 product">
+                    <img src="/uploads/{{product.illustration}}" class="img-fluid rounded" alt="{{product.name}}">
                     <h2 class="fw-normal mt-2">{{ product.name }}</h2>
                     <div style="font-size: 16px;">
                         {{ product.description|raw }}
@@ -102,6 +102,6 @@
 
         <!-- /END THE FEATURETTES -->
         #}
-    </div><!-- /.container -->
+    </div>
 
 {% endblock %}

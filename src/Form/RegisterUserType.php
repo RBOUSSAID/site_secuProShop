@@ -20,75 +20,77 @@ class RegisterUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [
-                'label' => 'Votre adresse email',
-                'attr'=>[
-                    'placeholder' => 'Indiquez votre adresse email'
-                ]
-                ])
-
-                ->add('plainPassword', RepeatedType::class, [
-                    'type' => PasswordType::class,
-                    'first_options'  => [
-                        'label' => 'Choisissez Votre mot de passe', 
-                        'constraints' => [
-                            new Length (['min' => 8,'max' => 12])
-                        ],
-                        'attr'=>[
-                            'placeholder' => 'Choisissez votre mot de passe'
-                        ],
-                        'hash_property_path' => 'password'
-                    ],
-
-                    'second_options' => [
-                        'label' => ' Confirmez votre mot de passe',
-                        'attr'=>[
-                            'placeholder' => 'Confirmez votre mot de passe'
-                        ],
-                    ],
-                    'mapped' => false
-                ])
-
-            ->add('firstname', TextType::class, [
-                'label' => 'Votre prénom',
+        ->add('email', EmailType::class, [
+            'label' => '📧 Votre adresse email',
+            'attr' => [
+                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'placeholder' => 'Indiquez votre adresse email'
+            ]
+        ])
+        
+        ->add('plainPassword', RepeatedType::class, [
+            'type' => PasswordType::class,
+            'first_options' => [
+                'label' => '🔒 Choisissez votre mot de passe',
                 'constraints' => [
-                            new Length (['min' => 2,'max' => 30])
-                        ],
-                'attr'=>[
-                    'placeholder' => 'Indiquez votre prénom'
-                ]
-                ])
-
-            ->add('lastname', TextType::class, [
-            'label' => 'Votre nom',
-            'constraints' => [
-                            new Length (['min' => 2,'max' => 30])
-                        ],
-            'attr'=>[
-                    'placeholder' => 'Indiquez votre nom'
-                ]
-            ])
-
-            ->add('submit', SubmitType::class, [
-                'label' => 'S\'inscrire',
-                'attr'=>[
-                    'class' => 'btn btn-success'
-                ]
-            ])
-        ;
-    }
-
-    // fonction pour valider les données du formulaire
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'constraints' => [
-                new UniqueEntity([
-                    'entityClass' => User::class,
-                    'fields' => 'email',
-                ])
+                    new Length(['min' => 8, 'max' => 12])
+                ],
+                'attr' => [
+                    'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                    'placeholder' => 'Choisissez votre mot de passe'
+                ],
+                'hash_property_path' => 'password'
             ],
-            'data_class' => User::class,
+            'second_options' => [
+                'label' => '🔄 Confirmez votre mot de passe',
+                'attr' => [
+                    'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                    'placeholder' => 'Confirmez votre mot de passe'
+                ],
+            ],
+            'mapped' => false
+        ])
+
+        ->add('firstname', TextType::class, [
+            'label' => '👤 Votre prénom',
+            'constraints' => [
+                new Length(['min' => 2, 'max' => 30])
+            ],
+            'attr' => [
+                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'placeholder' => 'Indiquez votre prénom'
+            ]
+        ])
+
+        ->add('lastname', TextType::class, [
+            'label' => '📝 Votre nom',
+            'constraints' => [
+                new Length(['min' => 2, 'max' => 30])
+            ],
+            'attr' => [
+                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'placeholder' => 'Indiquez votre nom'
+            ]
+        ])
+
+        ->add('submit', SubmitType::class, [
+            'label' => '🚀 S\'inscrire',
+            'attr' => [
+                'class' => 'btn btn-warning w-100 fw-bold py-2'
+            ]
         ]);
-    }
+}
+
+public function configureOptions(OptionsResolver $resolver): void
+{
+    $resolver->setDefaults([
+        'constraints' => [
+            new UniqueEntity([
+                'entityClass' => User::class,
+                'fields' => 'email',
+            ])
+        ],
+        'data_class' => User::class,
+    ]);
+}
 }
