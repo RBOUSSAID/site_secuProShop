@@ -18,16 +18,16 @@
                     <span class="d-block small">Prix unitaire : {{ product.object.pricewt|price }}</span>
                 </div>
                 <div class="col-md-2 text-center">
-                    <a href="{{ path('app_cart_decrease', { id : product.object.id }) }}" class="btn btn-outline-light btn-sm">-</a>
+                    <a href="{{ path ('app_cart_decrease', { id : product.object.id }) }}" class="btn btn-outline-light btn-sm">-</a>
                     <span class="badge bg-secondary text-white mx-2">x{{ product.quantity }}</span>
-                    <a href="{{ path('app_cart_add', { id : product.object.id }) }}" class="btn btn-outline-light btn-sm">+</a>
+                    <a href="{{ path ('app_cart_add', { id : product.object.id }) }}" class="btn btn-outline-light btn-sm">+</a>
                 </div>
                 <div class="col-md-2 text-right">
                     <strong>{{ (product.quantity * product.object.pricewt)|price }}</strong>
                 </div>
             </div>
         {% endfor %}
-        <a href="{{ path('app_cart_remove') }}" class="small d-block mt-3 text-danger">Vider le panier</a>
+        <a href="{{ path ('app_cart_remove') }}" class="small d-block mt-3 text-danger">Vider le panier</a>
     </div>
 
     {# Récapitulatif du panier (prix total, bouton commander, etc.) #}
