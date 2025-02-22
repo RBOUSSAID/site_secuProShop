@@ -2,8 +2,8 @@
 {% extends "base.html.twig" %}
 {% block body %}
 <div class="container my-5 d-flex justify-content-center">
-<div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-white w-50">
-    <h1 class="text-center text-warning">📝 Inscription</h1>
+<div class="card shadow-lg border-2 rounded-4 p-4 w-50" style="background-color: rgba(237, 237, 237, 0.85);">
+    <h1 class="text-center" style="color: #ff8505;">Inscription</h1>
 
     <div class="mt-4">
         {{ form(registerForm) }}
@@ -11,14 +11,14 @@
 
     <div class="mt-3 text-center">
         <p class="d-inline">Vous avez déjà un compte ?</p>
-        <a class="d-inline text-warning fw-bold hover-underline" href="{{ path('app_login') }}">Se connecter</a>
+        <a class="d-inline fw-bold hover-underline" href="{{ path('app_login') }}" style="color: #ff8505;">Se connecter</a>
     </div>
 </div>
 </div>
 
 <style>
 .hover-shadow:hover {
-    box-shadow: 0px 0px 10px rgba(255, 193, 7, 0.8);
+    box-shadow: 0px 0px 10px;
 }
 
 .hover-underline:hover {

@@ -4,14 +4,14 @@
 {% block body %}
     
 <div class="container my-5">
-    <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #3A3A3A; color: white;">
-        <h1 class="mb-3 text-center text-warning">Ma commande</h1>
+    <div class="card shadow-lg border-2 rounded-4 p-4" style="background-color:rgba(231, 231, 231, 0.85);">
+        <h1 class="mb-3 text-center" style="color: #ff8508;">Ma commande</h1>
 
         {{ form_start(deliveryForm, {'attr': {'class': 'needs-validation'}}) }}
 
         <div class="mb-3">
-            <label class="form-label fw-bold text-white">Adresse de livraison</label>
-            {{ form_row(deliveryForm.addresses, {'attr': {'class': 'form-select bg-dark text-white'}}) }}
+            <label class="form-label fw-bold text-dark">Adresse de livraison</label>
+            {{ form_row(deliveryForm.addresses, {'attr': {'class': 'form-select text-dark shadow-lg'}}) }}
             <a href="{{ path ('app_account_address_form') }}" class="btn btn-outline-warning btn-sm mt-2">
                 ➕ Ajouter une adresse
             </a>
@@ -20,8 +20,8 @@
         <hr class="my-4 border-light">
 
         <div class="mb-3">
-            <label class="form-label fw-bold text-white">Mode de livraison</label>
-            {{ form_row(deliveryForm.carriers, {'attr': {'class': 'form-select bg-dark text-white'}}) }}
+            <label class="form-label fw-bold text-dark">Mode de livraison</label>
+            {{ form_row(deliveryForm.carriers, {'attr': {'class': 'form-select text-dark shadow-lg'}}) }}
         </div>
         
         {{ form_end(deliveryForm) }}

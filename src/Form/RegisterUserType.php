@@ -23,7 +23,7 @@ class RegisterUserType extends AbstractType
         ->add('email', EmailType::class, [
             'label' => '📧 Votre adresse email',
             'attr' => [
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2',
                 'placeholder' => 'Indiquez votre adresse email'
             ]
         ])
@@ -36,7 +36,7 @@ class RegisterUserType extends AbstractType
                     new Length(['min' => 8, 'max' => 12])
                 ],
                 'attr' => [
-                    'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                    'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2',
                     'placeholder' => 'Choisissez votre mot de passe'
                 ],
                 'hash_property_path' => 'password'
@@ -44,7 +44,7 @@ class RegisterUserType extends AbstractType
             'second_options' => [
                 'label' => '🔄 Confirmez votre mot de passe',
                 'attr' => [
-                    'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                    'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2',
                     'placeholder' => 'Confirmez votre mot de passe'
                 ],
             ],
@@ -57,7 +57,7 @@ class RegisterUserType extends AbstractType
                 new Length(['min' => 2, 'max' => 30])
             ],
             'attr' => [
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2',
                 'placeholder' => 'Indiquez votre prénom'
             ]
         ])
@@ -68,15 +68,16 @@ class RegisterUserType extends AbstractType
                 new Length(['min' => 2, 'max' => 30])
             ],
             'attr' => [
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2',
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2',
                 'placeholder' => 'Indiquez votre nom'
             ]
         ])
 
         ->add('submit', SubmitType::class, [
-            'label' => '🚀 S\'inscrire',
+            'label' => 'S\'inscrire',
             'attr' => [
-                'class' => 'btn btn-warning w-100 fw-bold py-2'
+                'class' => 'btn btn-warning w-100 fw-bold py-2',
+                'style' => 'background-color: #ff8505;'
             ]
         ]);
 }

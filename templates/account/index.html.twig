@@ -4,22 +4,22 @@
 {% block body %}
     
 <div class="container my-5">
-<h1 class="text-warning">📜 Espace membre</h1>
+<h1 style="color: #ff8508;">Espace membre</h1>
 
 <div class="row">
     <div class="col-md-3">
         {% include 'account/_menu.html.twig' %}
     </div>
     <div class="col-md-9">
-        <div class="card shadow-lg border-0 rounded-4 p-4 bg-dark text-white">
+        <div class="card shadow-lg border-2 rounded-4 p-4" style="background-color: rgba(237, 237, 237, 0.85);">
             <h5 class="mb-3">📦 Mes dernières commandes</h5>
 
             {% if orders|length == 0 %}
                 <div class="alert alert-warning text-center">
-                    🤷‍♂️ Vous n'avez passé aucune commande pour le moment.
+                    Vous n'avez passé aucune commande pour le moment.
                 </div>
             {% else %}
-                <table class="table table-dark table-bordered text-center">
+                <table class="table table-bordered text-center" style="--bs-table-bg: rgba(237, 237, 237, 0.85);">
                     <thead>
                         <tr>
                             <th scope="col">N°</th>

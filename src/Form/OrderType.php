@@ -37,7 +37,7 @@ class OrderType extends AbstractType
                     
                     'label' => 'Valider la commande',
                     'attr'=>[
-                        'class' => 'w-100 btn btn-warning'
+                        'class' => 'w-100 btn btn-success'
                     ]
                     ])    
         ;

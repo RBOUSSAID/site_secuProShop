@@ -3,13 +3,13 @@
 
 {% block body %}
 <div class="container my-5">
-<h1 class="text-warning">🛒 Récapitulatif de ma commande</h1>
+<h1 style="color: #ff8505">Récapitulatif de ma commande</h1>
 
 <div class="row">
     <div class="col-md-8">
-        <div class="card shadow-lg border-0 rounded-4 p-4 mb-3" style="background-color: #3A3A3A; color: white;">
-            <h5 class="text-warning">📦 Contenu de mon panier</h5>
-            <hr class="border-light">
+        <div class="card shadow-lg border-2 rounded-4 p-4 mb-3" style="background-color:rgba(237, 237, 237, 0.85);">
+            <h5 style="color: #ff8505">📦 Contenu de mon panier</h5>
+            <hr class="border-black">
             {% for product in cart %}
                 <div class="row mt-2 align-items-center">    
                     <div class="col-md-2">
@@ -29,9 +29,9 @@
             {% endfor %}
         </div>    
 
-        <div class="card shadow-lg border-0 rounded-4 p-4 mb-3" style="background-color: #3A3A3A; color: white;">     
-            <h5 class="text-warning">🏠 Adresse de livraison</h5>
-            <hr class="border-light">
+        <div class="card shadow-lg border-2 rounded-4 p-4 mb-3" style="background-color:rgba(237, 237, 237, 0.85);">     
+            <h5 style="color: #ff8505">🏠 Adresse de livraison</h5>
+            <hr class="border-black">
             <p>
                 {{ choices.addresses.firstname }} {{ choices.addresses.lastname }} <br>
                 {{ choices.addresses.address }} <br>
@@ -39,9 +39,9 @@
             </p>
         </div>
 
-        <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #3A3A3A; color: white;">
-            <h5 class="text-warning">🚚 Transporteur</h5>
-            <hr class="border-light">
+        <div class="card shadow-lg border-2 rounded-4 p-4" style="background-color: rgba(237, 237, 237, 0.85);">
+            <h5 style="color: #ff8505">🚚 Transporteur</h5>
+            <hr class="border-black">
             <p>
                 <strong>{{ choices.carriers.name }}</strong> <br>
                 {{ choices.carriers.description }}
@@ -51,9 +51,9 @@
 
     {# Récapitulatif du total #}
     <div class="col-md-4">
-        <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #3A3A3A; color: white;">
-            <h5 class="text-warning">💰 Total de la commande</h5>
-            <hr class="border-light">
+        <div class="card shadow-lg border-2 rounded-4 p-4" style="background-color: rgba(237, 237, 237, 0.85);">
+            <h5 style="color: #ff8505">Total de la commande</h5>
+            <hr class="border-black">
             <div class="d-flex justify-content-between">
                 <span class="fw-bold">Total produits :</span>
                 <span>{{ fullCartQuantity }}</span>
@@ -67,8 +67,8 @@
                 <span>{{ (totalWt + choices.carriers.price)|price }}</span>   
             </div>
             <div>
-                <a href="{{ path('app_payment', { 'id_order' : order.id }) }}" class="btn btn-warning w-100 mt-3">
-                    💳 Payer ma commande
+                <a href="{{ path('app_payment', { 'id_order' : order.id }) }}" class="btn btn-success w-100 mt-3">
+                    Payer ma commande
                 </a>
             </div>
         </div>

@@ -54,7 +54,7 @@ class AddressUserType extends AbstractType
             'label' => 'Votre ville',
             'attr' => [
                 'placeholder' => 'Entrez votre ville',
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2 shadow-sm hover-effect'
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
             ]
         ])
         
@@ -62,7 +62,7 @@ class AddressUserType extends AbstractType
             'label' => 'Votre pays',
             'placeholder' => 'Choisissez votre pays',
             'attr' => [
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2 shadow-sm hover-effect'
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
             ]
         ])
         
@@ -70,14 +70,15 @@ class AddressUserType extends AbstractType
             'label' => 'Votre téléphone',
             'attr' => [
                 'placeholder' => 'Entrez votre numéro de téléphone',
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2 shadow-sm hover-effect'
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
             ]
         ])
         
         ->add('submit', SubmitType::class, [
             'label' => 'Sauvegarder',
             'attr' => [
-                'class' => 'btn btn-warning btn-lg w-100 fw-bold py-2 hover-shadow'
+                'class' => 'btn btn-warning btn-lg w-100 fw-bold py-2 hover-shadow',
+                'style' => 'background-color: #ff8505;'
             ]
         ]);
     }        

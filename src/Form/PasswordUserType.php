@@ -23,7 +23,7 @@ class PasswordUserType extends AbstractType
             'label' => '🔒 Votre mot de passe actuel',
             'attr' => [
                 'placeholder' => 'Entrez votre mot de passe actuel',
-                'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2 shadow-sm hover-effect'
+                'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
             ],
             'mapped' => false
         ])
@@ -37,7 +37,7 @@ class PasswordUserType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Choisissez votre nouveau mot de passe',
-                    'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2 shadow-sm hover-effect'
+                    'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
                 ],
                 'hash_property_path' => 'password'
             ],
@@ -45,16 +45,17 @@ class PasswordUserType extends AbstractType
                 'label' => '🔄 Confirmez votre mot de passe',
                 'attr' => [
                     'placeholder' => 'Confirmez votre mot de passe',
-                    'class' => 'form-control bg-secondary text-white border-0 rounded-3 p-2 shadow-sm hover-effect'
+                    'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
                 ]
             ],
             'mapped' => false
         ])
         
         ->add('submit', SubmitType::class, [
-            'label' => '🔒 Mettre à jour mon mot de passe',
+            'label' => 'Mettre à jour mon mot de passe',
             'attr' => [
-                'class' => 'btn btn-warning w-100 fw-bold py-2 hover-shadow'
+                'class' => 'btn btn-warning w-100 fw-bold py-2 hover-shadow',
+                'style' => 'background-color: #ff8505;'
             ]
         ])
         

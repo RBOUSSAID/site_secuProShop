@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container my-5">
-<h1 class="text-warning">Espace membre</h1>
+<h1 style="color: #ff8505;">Espace membre</h1>
 
 <div class="row">
     <div class="col-md-3">
@@ -10,33 +10,33 @@
     </div>
 
     <div class="col-md-9">
-        <div class="card shadow-lg border-0 rounded-4 p-4" style="background-color: #3A3A3A; color: white;">
+        <div class="card shadow-lg border-2 rounded-4 p-4" style="background-color: rgba(237, 237, 237, 0.85);">
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="text-warning">📍 Mes adresses</h5>
-                <a href="{{ path ('app_account_address_form') }}" class="btn btn-outline-warning btn-sm">
+                <h5 class="fw-bold" style="color: #ff8505;">Mes adresses</h5>
+                <a href="{{ path ('app_account_address_form') }}" class="btn btn-outline-warning btn-sm fw-bold">
                     ➕ Ajouter une adresse
                 </a>
             </div>
 
-            <hr class="border-light">
+            <hr class="border-dark">
 
             {# Afficher un message si l'utilisateur n'a pas encore ajouté d'adresse #}
             {% if app.user.addresses|length == 0 %}
-                <p class="text-center text-light mt-3">❌ Vous n'avez pas encore ajouté d'adresses.</p>
+                <p class="text-center mt-3">Vous n'avez pas encore ajouté d'adresses.</p>
             {% else %}
                 <div class="row">
                     {# Boucle pour afficher les adresses de l'utilisateur #}
                     {% for address in app.user.addresses %}
                         <div class="col-md-4 mt-3">
-                            <div class="card bg-dark text-white p-3 shadow-sm rounded-3 text-center">
+                            <div class="card p-3 shadow-sm border-2 rounded-3 text-center">
                                 <strong>{{ address.firstname }} {{ address.lastname }}</strong><br>
                                 {{ address.address }}<br>
                                 {{ address.postal }}, {{ address.city }}<br>
                                 {{ address.country }}<br>
                                 📞 Tel : {{ address.phone }}<br>
                                 <hr class="border-secondary">
-                                <a href="{{ path ('app_account_address_form', { id : address.id } ) }}" class="small text-warning">✏ Modifier</a> | 
-                                <a href="{{ path ('app_account_address_delete', { id : address.id } ) }}" class="small text-danger">🗑 Supprimer</a>
+                                <a href="{{ path ('app_account_address_form', { id : address.id } ) }}" class="small text-warning">Modifier</a> | 
+                                <a href="{{ path ('app_account_address_delete', { id : address.id } ) }}" class="small text-danger">Supprimer</a>
                             </div>
                         </div>
                     {% endfor %}

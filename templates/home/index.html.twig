@@ -23,9 +23,9 @@
                 </div>
                 <!-- Contenu à droite -->
                 <div class="w-50 p-4">
-                    <h1 class="text-warning text-center fw-bold mb-5">{{ header.title }}</h1>
-                    <p class="opacity-75">{{ header.content }}</p>
-                    <p class="text-center"><a class="btn btn-lg btn-warning" href="{{ header.buttonLink }}">{{ header.buttonTitle }}</a></p>
+                    <h1 class="text-center fw-bold mb-5" style="color: #ff8508;">{{ header.title }}</h1>
+                    <p class="opacity-75 text-white">{{ header.content }}</p>
+                    <p class="text-center"><a class="btn btn-lg btn-warning" href="{{ header.buttonLink }}" style="background-color: #ff8508;">{{ header.buttonTitle }}</a></p>
                 </div>
             </div>
         </div>
@@ -56,10 +56,10 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 mb-4 product">
                     <img src="/uploads/{{product.illustration}}" class="img-fluid rounded" alt="{{product.name}}">
                     <h2 class="fw-normal mt-2 text-center">{{ product.name }}</h2>
-                    <div class="d-block mb-3 fs-4 text-center text-withe">
+                    <div class="d-block mb-3 fs-4 text-center text-danger fw-bold">
                         {{ product.pricewt|price }}
                     </div>
-                    <p class="text-center mt-2"><a class="btn btn-warning mt-2" href="{{ path ('app_product', { slug : product.slug} ) }}">Découvrir</a></p>
+                    <p class="text-center mt-2"><a class="btn btn-warning mt-2" href="{{ path ('app_product', { slug : product.slug} ) }}" style="background-color: #ff8508;">Découvrir</a></p>
                 </div><!-- /.col-lg-4 -->
             {% endfor %}
         </div><!-- /.row -->
