@@ -33,7 +33,7 @@ class RegisterUserType extends AbstractType
             'first_options' => [
                 'label' => '🔒 Choisissez votre mot de passe',
                 'constraints' => [
-                    new Length(['min' => 8, 'max' => 12])
+                    new Length(['min' => 12, 'max' => 24])
                 ],
                 'attr' => [
                     'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2',
@@ -92,6 +92,9 @@ public function configureOptions(OptionsResolver $resolver): void
             ])
         ],
         'data_class' => User::class,
+        'csrf_protection' => true, // Activation de la protection CSRF
+        'csrf_field_name' => '_token', // Nom du champ CSRF
+        'csrf_token_id' => 'register_form' // Identifiant unique du token CSR
     ]);
 }
 }

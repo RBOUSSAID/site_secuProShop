@@ -82,7 +82,11 @@ class PasswordUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'passwordHasher' => null
+            'passwordHasher' => null,
+            'csrf_protection' => true,
+            'csrf_field_name' => '_token',
+            'csrf_token_id' => 'password_form'
+
         ]);
     }
 }

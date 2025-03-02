@@ -64,7 +64,7 @@ class Order
             $coef = 1 + ($product->getProductTva()/100);
             $totalTtc += $product->getProductPrice() * $coef * $product->getProductQuantity(); // calcul du total TTC sur le prix HT de chaque produit
         }
-        return $totalTtc + $this->getCarrierPrice(); // ajout du prix de transport
+        return $totalTtc + $this->getCarrierPrice(); // ajout le prix de transport
     }
 
     // calcul du total TVA sur le prix HT de tous les produits de la commande

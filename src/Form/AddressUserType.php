@@ -73,7 +73,7 @@ class AddressUserType extends AbstractType
                 'class' => 'form-control bg-secondary text-white border-2 rounded-3 p-2 shadow-sm hover-effect'
             ]
         ])
-        
+
         ->add('submit', SubmitType::class, [
             'label' => 'Sauvegarder',
             'attr' => [
@@ -88,6 +88,9 @@ class AddressUserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Address::class,
+            'csrf_protection' => true,
+            'csrf_field_name' => '_token',
+            'csrf_token_id' => 'address_user'
         ]);
     }
 }

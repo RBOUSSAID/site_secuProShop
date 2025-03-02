@@ -18,11 +18,11 @@
                     <img src="/uploads/{{ product.illustration }}" class="img-fluid rounded shadow-sm mb-3 product-image hover-shadow" alt="{{ product.name }}" loading="lazy">
                 </div>
                 <!-- Nom du produit -->
-                <span class="d-block fw-bold text-success">{{ product.name }}</span>
+                <span class="d-block fw-bold text-dark">{{ product.name }}</span>
             </a>
 
             <!-- Prix -->
-            <span class="d-block mt-2 fs-5 text-success">{{ product.pricewt|price }}</span>
+            <span class="d-block mt-2 fs-5 text-dark">{{ product.pricewt|price }}</span>
         </div>
     {% endfor %}
 

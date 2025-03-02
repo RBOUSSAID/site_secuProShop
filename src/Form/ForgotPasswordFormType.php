@@ -33,7 +33,9 @@ class ForgotPasswordFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'csrf_protection' => true, // Activation de la protection CSRF
+            'csrf_field_name' => '_token', // Nom du champ CSRF
+            'csrf_token_id' => 'forgot_password' // Identifiant unique du token CSRF
         ]);
     }
 }
